@@ -71,7 +71,7 @@ public class fieldManager : MonoBehaviour {
         Camera.main.GetComponent<Camera>().orthographicSize = (((tilePrefab.transform.lossyScale.y * vSize) + (gap * vSize)) / 2);
         GameObject start = Instantiate<GameObject>(startNode);
         start.transform.parent = map[centerY][centerX].transform;
-        start.transform.localPosition = new Vector3(0, 0, -1);
+        start.transform.localPosition = new Vector3(0, 0, 1);
         start.GetComponent<nodeManager>().AddTiles();
         playerTurn = 0;
         GameObject leftContainer = Instantiate<GameObject>(playerContainers);

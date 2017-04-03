@@ -18,7 +18,23 @@ public class lineNodeManager : nodeManager {
         base.Update();
         if (track)
         {
-            float horizDiff = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - gameObject.transform.position.x;
+			if (Input.GetKeyDown (KeyCode.W)) {
+				gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+				currFace = facing.up;
+			}
+			if (Input.GetKeyDown (KeyCode.A)) {
+				gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+				currFace = facing.left;
+			}
+			if (Input.GetKeyDown (KeyCode.D)) {
+				gameObject.transform.rotation = Quaternion.Euler (new Vector3 (0, 0, 0));
+				currFace = facing.right;
+			}
+			if (Input.GetKeyDown (KeyCode.S)) {
+				gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 270));
+				currFace = facing.down;
+			}
+            /*float horizDiff = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - gameObject.transform.position.x;
             float vertDiff = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - gameObject.transform.position.y;
             if (Mathf.Abs(vertDiff) > Mathf.Abs(horizDiff))
             {
@@ -48,7 +64,7 @@ public class lineNodeManager : nodeManager {
             if (!skipFrame && Input.GetMouseButtonDown(0))
             {
                 OnMouseDown();
-            }
+            }*/
             if (Input.GetKeyDown(KeyCode.Delete))
             {
                 Destroy(gameObject);
